@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Facade;
  * JsonResponse
  *
  * @method static \Illuminate\Http\JsonResponse json(string|array $status = null, array $attributes = [], array $options = []) Return json response.
- * @method static \Illuminate\Http\JsonResponse error(string|array $status = null, array $attributes = [], array $options = []) Return json response with error.
+ * @method static \Illuminate\Http\JsonResponse error(\Throwable $exception, string|array $status = null, array $attributes = [], array $options = []) Return json response with error.
  * @method static \ArinaSystems\JsonResponse\Status|\ArinaSystems\JsonResponse\JsonResponse status(string $status = null) Retrieve/Set json response status.
  * @method static \ArinaSystems\JsonResponse\Option|mixed options(string|array $key = null, mixed $default = null) Retrieve/Set json response options.
  * @method static \ArinaSystems\JsonResponse\Attribute|mixed attributes(string|array $key = null, mixed $default = null) Retrieve/Set json response attributes.

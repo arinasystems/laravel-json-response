@@ -63,7 +63,7 @@ class JsonResponse
         }
 
         return Response::json(
-            $this->build(),
+            $this->build($this->attributes('exception', false)),
             $this->attributes('http_code', 200),
             $this->attributes('headers', []),
             $this->options('encoding_options')
@@ -73,35 +73,17 @@ class JsonResponse
     /**
      * Return json response with error.
      *
+     * @param  \Throwable                      $exception
      * @param  string|array                    $status
      * @param  array                           $attributes
      * @param  array                           $options
      * @return \Illuminate\Http\JsonResponse
      */
-    public function error($status = null, array $attributes = [], array $options = [])
+    public function error($exception, $status = null, array $attributes = [], array $options = [])
     {
-        if (is_array($status)) {
-            extract($status);
-        }
+        $this->setAttributes('exception', $exception);
 
-        if ($options) {
-            $this->options($options);
-        }
-
-        if ($attributes) {
-            $this->attributes($attributes);
-        }
-
-        if (!is_null($status) && is_string($status)) {
-            $this->status($status);
-        }
-
-        return Response::json(
-            $this->build(true),
-            $this->attributes('http_code'),
-            $this->attributes('headers') ?? [],
-            $this->options('encoding_options')
-        );
+        return $this->json($status, $attributes, $options);
     }
 
     /**

@@ -2,10 +2,9 @@
 
 namespace ArinaSystems\JsonResponse\Tests;
 
-use ArinaSystems\JsonResponse\Code;
+use Illuminate\Support\Facades\Config;
 use ArinaSystems\JsonResponse\Facades\Option;
 use ArinaSystems\JsonResponse\Facades\JsonResponse;
-use Illuminate\Support\Facades\Config;
 
 class JsonResponseTest extends TestCase
 {
