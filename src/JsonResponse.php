@@ -62,8 +62,10 @@ class JsonResponse
             $this->status($status);
         }
 
+        $is_error = $this->attributes('exception') ? true : false;
+
         return Response::json(
-            $this->build($this->attributes('exception', false)),
+            $this->build($is_error),
             $this->attributes('http_code', 200),
             $this->attributes('headers', []),
             $this->options('encoding_options')
