@@ -2,7 +2,7 @@
 
 namespace ArinaSystems\JsonResponse\Attribute\Builders;
 
-use Exception;
+use Throwable;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use ArinaSystems\JsonResponse\Facades\JsonResponse;
@@ -13,12 +13,12 @@ class ExceptionAttributeBuilder extends Builder
     /**
      * Build a value of the exception attribute.
      *
-     * @param  \Exception $exception
+     * @param  \Throwable $exception
      * @return mixed
      */
     public function build($exception)
     {
-        if (!is_a($exception, Exception::class)) {
+        if (!is_a($exception, Throwable::class)) {
             return $exception;
         }
 
@@ -43,7 +43,7 @@ class ExceptionAttributeBuilder extends Builder
             'code'      => $code,
             'message'   => $message,
             'errors'    => $errors ?? [],
-            'debug'     => $exception,
+            'debug'     => $exception->getTrace(),
         ]);
 
         return $exception ? class_basename(get_class($exception)) : null;
@@ -52,10 +52,10 @@ class ExceptionAttributeBuilder extends Builder
     /**
      * Determine if the given exception is an HTTP exception.
      *
-     * @param  \Exception $exception
+     * @param  \Throwable $exception
      * @return bool
      */
-    protected function isHttpException(Exception $exception)
+    protected function isHttpException(Throwable $exception)
     {
         return $exception instanceof HttpExceptionInterface;
     }

@@ -2,7 +2,7 @@
 
 namespace ArinaSystems\JsonResponse\Traits;
 
-use Exception;
+use Throwable;
 use ArinaSystems\JsonResponse\Facades\JsonResponse;
 
 trait JsonHandler
@@ -11,11 +11,11 @@ trait JsonHandler
      * Prepare a JSON response for the given exception.
      *
      * @param  \Illuminate\Http\Request        $request
-     * @param  \Exception                      $exception
+     * @param  \Throwable                      $exception
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function renderForJson($request, Exception $exception)
+    protected function renderForJson($request, Throwable $exception)
     {
-        return JsonResponse::setAttributes('exception', $exception)->error();
+        return JsonResponse::error($exception);
     }
 }

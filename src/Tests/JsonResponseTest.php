@@ -2,10 +2,10 @@
 
 namespace ArinaSystems\JsonResponse\Tests;
 
-use ArinaSystems\JsonResponse\Code;
+use Exception;
+use Illuminate\Support\Facades\Config;
 use ArinaSystems\JsonResponse\Facades\Option;
 use ArinaSystems\JsonResponse\Facades\JsonResponse;
-use Illuminate\Support\Facades\Config;
 
 class JsonResponseTest extends TestCase
 {
@@ -52,7 +52,11 @@ class JsonResponseTest extends TestCase
         // Enable debugging mode.
         Config::set('json-response.debug', true);
 
-        $responseStructure = (array) JsonResponse::error()->getData();
+        // Disable internal code builder.
+        Config::set('json-response.attributes.code.builder', null);
+
+        $responseStructure = (array) JsonResponse::error(new Exception("Some throwable object."))->getData();
+
         $builderStructure = JsonResponse::structure(true);
 
         $this->assertEquals(array_keys($responseStructure), array_keys($builderStructure));
