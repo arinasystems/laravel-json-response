@@ -1,6 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\DataTransformers;
+namespace ArinaSystems\JsonResponse\Data\Transformers;
 
 use ArinaSystems\JsonResponse\Data\Transformers\Transformer;
 
