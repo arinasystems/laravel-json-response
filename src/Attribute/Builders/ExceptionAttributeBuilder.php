@@ -11,6 +11,26 @@ use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 class ExceptionAttributeBuilder extends Builder
 {
     /**
+     * @var int
+     */
+    protected $http_code;
+
+    /**
+     * @var int
+     */
+    protected $code;
+
+    /**
+     * @var string
+     */
+    protected $message;
+
+    /**
+     * @var array
+     */
+    protected $errors;
+
+    /**
      * Build a value of the exception attribute.
      *
      * @param  \Throwable $exception
@@ -22,41 +42,39 @@ class ExceptionAttributeBuilder extends Builder
             return $exception;
         }
 
+        $exceptionName = class_basename(get_class($exception));
+
+        $this->message = $exception->getMessage();
+
         if ($exception instanceof AuthenticationException) {
-            $http_code = 401;
-            $code = 401;
-            $message = __('Unauthenticated.');
+            $this->http_code = 401;
+            $this->code = 401;
+            $this->message = __('Unauthenticated.');
         } elseif ($exception instanceof ValidationException) {
-            $http_code = $exception->status;
-            $code = $exception->status;
-            $message = $exception->getMessage();
+            $this->http_code = $exception->status;
+            $this->code = $exception->status;
             $errors = $exception->errors();
+        } elseif ($exception instanceof HttpExceptionInterface) {
+            $this->http_code = $exception->getStatusCode();
+            $this->code = $exception->getStatusCode();
         } else {
-            $http_code = $this->isHttpException($exception) ? $exception->getStatusCode() : 500;
-            $code = $this->isHttpException($exception) ? $exception->getStatusCode() : 500;
-            $message = $exception->getMessage();
+            $this->http_code = 500;
+            $this->code = 500;
+        }
+
+        if (method_exists($this, $handle = 'handle' . $exceptionName)) {
+            $this->{$handle}($exception);
         }
 
         JsonResponse::setAttributes([
             'success'   => false,
-            'http_code' => $http_code,
-            'code'      => $code,
-            'message'   => $message,
+            'http_code' => $this->http_code,
+            'code'      => $this->code,
+            'message'   => $this->message,
             'errors'    => $errors ?? [],
             'debug'     => $exception->getTrace(),
         ]);
 
-        return $exception ? class_basename(get_class($exception)) : null;
-    }
-
-    /**
-     * Determine if the given exception is an HTTP exception.
-     *
-     * @param  \Throwable $exception
-     * @return bool
-     */
-    protected function isHttpException(Throwable $exception)
-    {
-        return $exception instanceof HttpExceptionInterface;
+        return $exceptionName;
     }
 }
