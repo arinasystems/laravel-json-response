@@ -9,6 +9,16 @@ use ArinaSystems\JsonResponse\Facades\JsonResponse;
 class JsonResourceTransformer extends Transformer
 {
     /**
+     * Determine which class of object should be transform.
+     *
+     * @return string
+     */
+    public function objectClass(): string
+    {
+        return \Illuminate\Http\Resources\Json\JsonResource::class;
+    }
+
+    /**
      * Transform the data value to array.
      *
      * @return array
@@ -20,11 +30,6 @@ class JsonResourceTransformer extends Transformer
         }
 
         return $this->item->resolve();
-    }
-
-    public function transform(): string
-    {
-        return \Illuminate\Http\Resources\Json\JsonResource::class;
     }
 
     /**

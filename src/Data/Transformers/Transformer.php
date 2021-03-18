@@ -29,10 +29,21 @@ abstract class Transformer
      */
     abstract public function toArray(): array;
 
-    abstract public function transform(): string;
+    /**
+     * Determine which class of object should be transform.
+     *
+     * @return string
+     */
+    abstract public function objectClass(): string;
 
+    /**
+     * Check if the given object item is an instance of the determined class.
+     *
+     * @param $item
+     * @return bool
+     */
     protected function validate($item)
     {
-        return is_a($item, $this->transform());
+        return (bool) is_a($item, $this->objectClass());
     }
 }

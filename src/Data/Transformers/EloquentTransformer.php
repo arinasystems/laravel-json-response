@@ -16,7 +16,12 @@ class EloquentTransformer extends Transformer
         return $this->item->toArray();
     }
 
-    public function transform(): string
+    /**
+     * Determine which class of object should be transform.
+     *
+     * @return string
+     */
+    public function objectClass(): string
     {
         return \Illuminate\Database\Eloquent\Model::class;
     }
