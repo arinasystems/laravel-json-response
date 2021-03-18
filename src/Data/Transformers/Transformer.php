@@ -14,8 +14,7 @@ abstract class Transformer
     /**
      * Create a new instance.
      *
-     * @param  object $item
-     * @return void
+     * @param object $item
      */
     public function __construct($item)
     {

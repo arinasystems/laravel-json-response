@@ -48,20 +48,20 @@ class Status
     /**
      * Set a status to a given value using "dot" notation.
      *
-     * @param  string|array $key
+     * @param  string|array $keys
      * @param  null|mixed $value
      * @return self
      */
-    public function set($key, $value = null)
+    public function set($keys, $value = null)
     {
-        if (is_array($key)) {
-            foreach ($key as $key => $value) {
+        if (is_array($keys)) {
+            foreach ($keys as $key => $value) {
                 $this->set($key, $value);
             }
         }
 
-        if (is_string($key)) {
-            Arr::set($this->status, $key, $value);
+        if (is_string($keys)) {
+            Arr::set($this->status, $keys, $value);
         }
 
         return $this;

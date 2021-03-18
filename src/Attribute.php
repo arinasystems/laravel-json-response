@@ -21,8 +21,7 @@ class Attribute
     /**
      * Create a new instance.
      *
-     * @param  array|Option $attributes
-     * @return void
+     * @param \ArinaSystems\JsonResponse\Option $options
      */
     public function __construct(Option $options)
     {
@@ -57,7 +56,7 @@ class Attribute
         }
 
         if (!is_string($key)) {
-            throw new InvalidArgumentException();
+            throw new InvalidArgumentException("\$key must be a string or array.");
         }
 
         $value = $this->build($key, $value);
@@ -108,7 +107,7 @@ class Attribute
     }
 
     /**
-     * Get the builder attribute' value.
+     * Get the attribute's value builder.
      *
      * @param  string  $attribute
      * @return mixed
@@ -119,9 +118,12 @@ class Attribute
     }
 
     /**
-     * @param array $options
+     * Parsing the attributes from the given options.
+     *
+     * @param  \ArinaSystems\JsonResponse\Option $options
+     * @return void
      */
-    protected function parse($options): void
+    protected function parse(Option $options): void
     {
         $this->options = $options;
         $this->attributes = $options->get('attributes');
@@ -152,7 +154,9 @@ class Attribute
     }
 
     /**
-     * @return mixed
+     * Get an instance of attribute object.
+     *
+     * @return self
      */
     public function instance()
     {

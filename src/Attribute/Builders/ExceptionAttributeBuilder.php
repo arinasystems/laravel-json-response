@@ -21,7 +21,7 @@ class ExceptionAttributeBuilder extends Builder
     protected $code;
 
     /**
-     * @var string
+     * @var \Illuminate\Contracts\Translation\Translator|string|array|null
      */
     protected $message;
 
