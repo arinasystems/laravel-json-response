@@ -1,6 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\Data\Transformers;
+namespace ArinaSystems\JsonResponse\Transformers;
 
 use Illuminate\Support\Arr;
 use Illuminate\Pagination\LengthAwarePaginator;

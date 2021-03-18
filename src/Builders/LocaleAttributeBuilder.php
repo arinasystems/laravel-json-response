@@ -1,6 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\Attribute\Builders;
+namespace ArinaSystems\JsonResponse\Builders;
 
 use Illuminate\Support\Facades\Config;
 

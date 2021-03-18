@@ -3,7 +3,7 @@
 return [
     'attributes'           => [
         'success'    => [
-            'builder'     => \ArinaSystems\JsonResponse\Attribute\Builders\SuccessAttributeBuilder::class,
+            'builder'     => \ArinaSystems\JsonResponse\Builders\SuccessAttributeBuilder::class,
             'value'       => true,
             'on-response' => true,
             'on-error'    => true,
@@ -21,19 +21,19 @@ return [
             'on-error'    => true,
         ],
         'locale'     => [
-            'builder'     => \ArinaSystems\JsonResponse\Attribute\Builders\LocaleAttributeBuilder::class,
+            'builder'     => \ArinaSystems\JsonResponse\Builders\LocaleAttributeBuilder::class,
             'value'       => null,
             'on-response' => true,
             'on-error'    => true,
         ],
         'message'    => [
-            'builder'     => \ArinaSystems\JsonResponse\Attribute\Builders\MessageAttributeBuilder::class,
+            'builder'     => \ArinaSystems\JsonResponse\Builders\MessageAttributeBuilder::class,
             'value'       => null,
             'on-response' => true,
             'on-error'    => true,
         ],
         'data'       => [
-            'builder'     => \ArinaSystems\JsonResponse\Attribute\Builders\DataAttributeBuilder::class,
+            'builder'     => \ArinaSystems\JsonResponse\Builders\DataAttributeBuilder::class,
             'value'       => null,
             'on-response' => true,
             'on-error'    => false,
@@ -44,19 +44,19 @@ return [
             'on-error'    => false,
         ],
         'exception'  => [
-            'builder'     => \ArinaSystems\JsonResponse\Attribute\Builders\ExceptionAttributeBuilder::class,
+            'builder'     => \ArinaSystems\JsonResponse\Builders\ExceptionAttributeBuilder::class,
             'value'       => null,
             'on-response' => false,
             'on-error'    => true,
         ],
         'errors'     => [
-            'builder'     => \ArinaSystems\JsonResponse\Attribute\Builders\ErrorsAttributeBuilder::class,
+            'builder'     => \ArinaSystems\JsonResponse\Builders\ErrorsAttributeBuilder::class,
             'value'       => [],
             'on-response' => false,
             'on-error'    => true,
         ],
         'debug'      => [
-            'builder'     => \ArinaSystems\JsonResponse\Attribute\Builders\DebugAttributeBuilder::class,
+            'builder'     => \ArinaSystems\JsonResponse\Builders\DebugAttributeBuilder::class,
             'value'       => null,
             'on-response' => false,
             'on-error'    => true,
@@ -86,8 +86,8 @@ return [
     ],
 
     'transformers'         => [
-        \Illuminate\Database\Eloquent\Model::class          => \ArinaSystems\JsonResponse\Data\Transformers\EloquentTransformer::class,
-        \Illuminate\Http\Resources\Json\JsonResource::class => \ArinaSystems\JsonResponse\Data\Transformers\JsonResourceTransformer::class,
+        \Illuminate\Database\Eloquent\Model::class          => \ArinaSystems\JsonResponse\Transformers\EloquentTransformer::class,
+        \Illuminate\Http\Resources\Json\JsonResource::class => \ArinaSystems\JsonResponse\Transformers\JsonResourceTransformer::class,
     ],
 
     'encoding_options'     => JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE,

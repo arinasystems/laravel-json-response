@@ -1,8 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\Data\Transformers;
-
-use ArinaSystems\JsonResponse\Data\Transformers\Transformer;
+namespace ArinaSystems\JsonResponse\Transformers;
 
 class EloquentTransformer extends Transformer
 {

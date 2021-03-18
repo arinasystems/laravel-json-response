@@ -1,6 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\Attribute\Builders;
+namespace ArinaSystems\JsonResponse\Builders;
 
 use Throwable;
 use Illuminate\Auth\AuthenticationException;
