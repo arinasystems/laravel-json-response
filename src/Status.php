@@ -14,8 +14,7 @@ class Status
     /**
      * Create a new instance.
      *
-     * @param  array  $status
-     * @return void
+     * @param array $status
      */
     public function __construct(array $status)
     {
@@ -37,7 +36,7 @@ class Status
     /**
      * Forget a status from by given name.
      *
-     * @param  string     $key
+     * @param  string  $key
      * @return mixed
      */
     public function forget(string $key)
@@ -49,7 +48,7 @@ class Status
      * Set a status to a given value using "dot" notation.
      *
      * @param  string|array $keys
-     * @param  null|mixed $value
+     * @param  null|mixed   $value
      * @return self
      */
     public function set($keys, $value = null)
@@ -70,7 +69,7 @@ class Status
     /**
      * Check if an status is exist in the array.
      *
-     * @param  array $key
+     * @param  array  $key
      * @return bool
      */
     public function has($key)
@@ -112,6 +111,9 @@ class Status
         $this->status = $status;
     }
 
+    /**
+     * @return mixed
+     */
     public function instance()
     {
         return $this;

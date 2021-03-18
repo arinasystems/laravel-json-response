@@ -10,11 +10,10 @@ trait JsonHandler
     /**
      * Prepare a JSON response for the given exception.
      *
-     * @param  \Illuminate\Http\Request        $request
      * @param  \Throwable                      $exception
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function renderForJson($request, Throwable $exception)
+    protected function renderForJson(Throwable $exception)
     {
         return JsonResponse::error($exception);
     }
