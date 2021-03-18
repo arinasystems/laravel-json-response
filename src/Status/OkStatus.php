@@ -2,8 +2,6 @@
 
 namespace ArinaSystems\JsonResponse\Status;
 
-use ArinaSystems\JsonResponse\Code;
-
 class OkStatus
 {
     /**
@@ -13,6 +11,6 @@ class OkStatus
     public function handle($builder)
     {
         return $builder->setAttributes('success', true)
-                       ->setAttributes('code', Code::of('OK'));
+                       ->setAttributes('code', 200);
     }
 }

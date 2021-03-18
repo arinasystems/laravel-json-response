@@ -43,25 +43,25 @@ class Attribute
     /**
      * Set a attribute to a given value using "dot" notation.
      *
-     * @param  string|array $key
+     * @param  string|array $keys
      * @param  null|mixed   $value
      * @return self
      */
-    public function set($key, $value = null)
+    public function set($keys, $value = null)
     {
-        if (is_array($key)) {
-            foreach ($key as $key => $value) {
+        if (is_array($keys)) {
+            foreach ($keys as $key => $value) {
                 $this->set($key, $value);
             }
         }
 
-        if (!is_string($key)) {
+        if (!is_string($keys)) {
             throw new InvalidArgumentException("\$key must be a string or array.");
         }
 
-        $value = $this->build($key, $value);
+        $value = $this->build($keys, $value);
 
-        Arr::set($this->attributes, $key . '.value', $value);
+        Arr::set($this->attributes, $keys . '.value', $value);
 
         return $this;
     }
@@ -126,7 +126,7 @@ class Attribute
     protected function parse(Option $options): void
     {
         $this->options = $options;
-        $this->attributes = $options->get('attributes');
+        $this->attributes = (array) $options->get('attributes');
         $this->set($this->all());
     }
 
