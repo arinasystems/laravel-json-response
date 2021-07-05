@@ -53,6 +53,7 @@ class Attribute
             foreach ($keys as $key => $value) {
                 $this->set($key, $value);
             }
+            return $this;
         }
 
         if (!is_string($keys)) {
