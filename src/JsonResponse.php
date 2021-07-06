@@ -49,15 +49,15 @@ class JsonResponse
             extract($status);
         }
 
-        if (!empty($options)) {
+        if (! empty($options)) {
             $this->options($options);
         }
 
-        if (!empty($attributes)) {
+        if (! empty($attributes)) {
             $this->attributes($attributes);
         }
 
-        if (!is_null($status) && is_string($status)) {
+        if (! is_null($status) && is_string($status)) {
             $this->status($status);
         }
 
@@ -96,7 +96,8 @@ class JsonResponse
     public function status(string $status = null)
     {
         if (is_string($status)) {
-            throw_if(!$this->status->has($status), new Exception("The \"{$status}\" response state does not exist"));
+            throw_if(! $this->status->has($status), new Exception("The \"{$status}\" response state does not exist"));
+
             return $this->status->call($status, $this);
         }
 
@@ -116,7 +117,7 @@ class JsonResponse
             return $this->setOptions($key);
         }
 
-        if (!is_null($key)) {
+        if (! is_null($key)) {
             return $this->options->get($key, $default);
         }
 
@@ -187,6 +188,7 @@ class JsonResponse
         }
 
         $this->attributes->set($attributes, $value);
+
         return $this;
     }
 
@@ -212,7 +214,7 @@ class JsonResponse
     {
         $structure = $this->structure($error);
 
-        if (!$this->options('debug')) {
+        if (! $this->options('debug')) {
             unset($structure['debug']);
         }
 
@@ -229,7 +231,7 @@ class JsonResponse
      */
     public function structure(bool $error = false): array
     {
-        $structure = Arr::where($this->attributes->all('on-' . ($error ? 'error' : 'response')), function ($onStructure) {
+        $structure = Arr::where($this->attributes->all('on-'.($error ? 'error' : 'response')), function ($onStructure) {
             return boolval($onStructure);
         });
 

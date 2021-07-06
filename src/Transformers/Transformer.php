@@ -18,7 +18,7 @@ abstract class Transformer
      */
     public function __construct($item)
     {
-        throw_if(!$this->validate($item), new Exception("Expected argument of type \"" . get_class($item) . "\" \"" . get_class($item) . "\" given."));
+        throw_if(! $this->validate($item), new Exception('Expected argument of type "'.get_class($item).'" "'.get_class($item).'" given.'));
         $this->item = $item;
     }
 

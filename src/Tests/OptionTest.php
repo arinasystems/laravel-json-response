@@ -2,8 +2,8 @@
 
 namespace ArinaSystems\JsonResponse\Tests;
 
-use Illuminate\Support\Facades\Config;
 use ArinaSystems\JsonResponse\Option;
+use Illuminate\Support\Facades\Config;
 
 class OptionTest extends TestCase
 {
@@ -11,6 +11,7 @@ class OptionTest extends TestCase
      * @var \ArinaSystems\JsonResponse\Option
      */
     protected $options;
+
     /**
      * @var array
      */

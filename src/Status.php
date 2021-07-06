@@ -2,8 +2,8 @@
 
 namespace ArinaSystems\JsonResponse;
 
-use Illuminate\Support\Arr;
 use ArinaSystems\JsonResponse\Status\Status as StatusInterface;
+use Illuminate\Support\Arr;
 
 class Status
 {
@@ -76,7 +76,6 @@ class Status
     public function has($key)
     {
         return Arr::has($this->all(), $key);
-
     }
 
     /**
@@ -98,7 +97,7 @@ class Status
     {
         $status = $this->get($status);
 
-        if (!(new $status) instanceof StatusInterface) {
+        if (! (new $status()) instanceof StatusInterface) {
             throw new \Exception("The class '{$status}' must implement 'ArinaSystems\JsonResponse\Status\Status' interface.", 1);
         }
 

@@ -2,8 +2,8 @@
 
 namespace ArinaSystems\JsonResponse\Traits;
 
-use Throwable;
 use ArinaSystems\JsonResponse\Facades\JsonResponse;
+use Throwable;
 
 trait JsonHandler
 {

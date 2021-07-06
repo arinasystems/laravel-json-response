@@ -29,7 +29,7 @@ class AttributeTest extends TestCase
             'success'   => true,
             'code'      => 2000,
             'http_code' => 200,
-            'locale'    => "en",
+            'locale'    => 'en',
             'message'   => 'Hello, World!',
             'data'      => null,
             'headers'   => [],
@@ -39,7 +39,6 @@ class AttributeTest extends TestCase
         ];
 
         $this->attribute = Attribute::set($this->attributes);
-
     }
 
     /**

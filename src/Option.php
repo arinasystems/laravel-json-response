@@ -137,7 +137,7 @@ class Option
      */
     public function defaults(string $attribute = null): array
     {
-        if (!is_null($attribute)) {
+        if (! is_null($attribute)) {
             return config("json-response.attributes.{$attribute}.value");
         }
 

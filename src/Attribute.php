@@ -2,9 +2,9 @@
 
 namespace ArinaSystems\JsonResponse;
 
+use ArinaSystems\JsonResponse\Option;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use ArinaSystems\JsonResponse\Option;
 
 class Attribute
 {
@@ -37,7 +37,7 @@ class Attribute
      */
     public function get(string $key, $default = null)
     {
-        return Arr::get($this->attributes, $key . '.value', $default);
+        return Arr::get($this->attributes, $key.'.value', $default);
     }
 
     /**
@@ -53,16 +53,17 @@ class Attribute
             foreach ($keys as $key => $value) {
                 $this->set($key, $value);
             }
+
             return $this;
         }
 
-        if (!is_string($keys)) {
-            throw new InvalidArgumentException("\$key must be a string or array.");
+        if (! is_string($keys)) {
+            throw new InvalidArgumentException('$key must be a string or array.');
         }
 
         $value = $this->build($keys, $value);
 
-        Arr::set($this->attributes, $keys . '.value', $value);
+        Arr::set($this->attributes, $keys.'.value', $value);
 
         return $this;
     }
@@ -76,7 +77,7 @@ class Attribute
     {
         $attributes = $this->attributes;
 
-        if (!is_null($value)) {
+        if (! is_null($value)) {
             foreach ($attributes as $attribute => $options) {
                 $attributes[$attribute] = Arr::get($options, $value);
             }
@@ -101,6 +102,7 @@ class Attribute
 
         if (is_string($builder) && class_exists($builder)) {
             $builder = new $builder($this->options, $this);
+
             return $builder->build($value);
         }
 
