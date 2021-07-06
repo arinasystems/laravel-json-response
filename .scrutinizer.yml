@@ -1,3 +1,14 @@
+build:
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+        coverage:
+            tests:
+                override:
+                    - command: composer test
+
 filter:
     paths:
         - "app/*"
