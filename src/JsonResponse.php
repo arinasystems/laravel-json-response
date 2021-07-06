@@ -26,8 +26,7 @@ class JsonResponse
     /**
      * Create a new instance.
      *
-     * @param  \ArinaSystems\JsonResponse\Option|array|string $options
-     * @return void
+     * @param \ArinaSystems\JsonResponse\Option|array|string $options
      */
     public function __construct(Option $options, Attribute $attributes, Status $status)
     {
@@ -50,11 +49,11 @@ class JsonResponse
             extract($status);
         }
 
-        if ($options) {
+        if (!empty($options)) {
             $this->options($options);
         }
 
-        if ($attributes) {
+        if (!empty($attributes)) {
             $this->attributes($attributes);
         }
 
@@ -163,6 +162,18 @@ class JsonResponse
     }
 
     /**
+     * Set json response option.
+     *
+     * @param  \ArinaSystems\JsonResponse\Option|array|string $options
+     * @param  null|mixed                                     $value
+     * @return self
+     */
+    public function setOption($options, $value = null)
+    {
+        return $this->setOptions($options, $value);
+    }
+
+    /**
      * Set json response attributes.
      *
      * @param  \ArinaSystems\JsonResponse\Attribute|array|string $attributes
@@ -177,6 +188,18 @@ class JsonResponse
 
         $this->attributes->set($attributes, $value);
         return $this;
+    }
+
+    /**
+     * Set json response attribute.
+     *
+     * @param  \ArinaSystems\JsonResponse\Attribute|array|string $attributes
+     * @param  null|mixed                                        $value
+     * @return self
+     */
+    public function setAttribute($attributes, $value = null)
+    {
+        return $this->setAttributes($attributes, $value);
     }
 
     /**

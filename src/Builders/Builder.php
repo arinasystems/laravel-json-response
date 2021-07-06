@@ -1,6 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\Attribute\Builders;
+namespace ArinaSystems\JsonResponse\Builders;
 
 use Illuminate\Container\Container;
 use ArinaSystems\JsonResponse\Option;
@@ -26,7 +26,8 @@ abstract class Builder
     /**
      * Create a new instance.
      *
-     * @return void
+     * @param \ArinaSystems\JsonResponse\Option    $options
+     * @param \ArinaSystems\JsonResponse\Attribute $attributes
      */
     public function __construct(Option $options, Attribute $attributes)
     {

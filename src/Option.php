@@ -4,6 +4,15 @@ namespace ArinaSystems\JsonResponse;
 
 use Illuminate\Support\Arr;
 
+/**
+ * @property array $attributes
+ * @property array $status
+ * @property array $transformers
+ * @property array $codes
+ * @property int $encoding_options
+ * @property bool $debug
+ * @property bool $message_translations
+ */
 class Option
 {
     /**
@@ -14,8 +23,7 @@ class Option
     /**
      * Create a new instance.
      *
-     * @param  array  $options
-     * @return void
+     * @param array $options
      */
     public function __construct(array $options)
     {
@@ -37,20 +45,20 @@ class Option
     /**
      * Set a option to a given value using "dot" notation.
      *
-     * @param  string|array $key
+     * @param  string|array $keys
      * @param  null|mixed   $value
      * @return self
      */
-    public function set($key, $value = null)
+    public function set($keys, $value = null)
     {
-        if (is_array($key)) {
-            foreach ($key as $key => $value) {
+        if (is_array($keys)) {
+            foreach ($keys as $key => $value) {
                 $this->set($key, $value);
             }
         }
 
-        if (is_string($key)) {
-            Arr::set($this->options, $key, $value);
+        if (is_string($keys)) {
+            Arr::set($this->options, $keys, $value);
         }
 
         return $this;
@@ -129,7 +137,7 @@ class Option
      */
     public function defaults(string $attribute = null): array
     {
-        if ($attribute) {
+        if (!is_null($attribute)) {
             return config("json-response.attributes.{$attribute}.value");
         }
 

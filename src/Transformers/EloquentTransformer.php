@@ -1,8 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\Data\Transformers;
-
-use ArinaSystems\JsonResponse\Data\Transformers\Transformer;
+namespace ArinaSystems\JsonResponse\Transformers;
 
 class EloquentTransformer extends Transformer
 {
@@ -16,7 +14,12 @@ class EloquentTransformer extends Transformer
         return $this->item->toArray();
     }
 
-    public function transform(): string
+    /**
+     * Determine which class of object should be transform.
+     *
+     * @return string
+     */
+    public function objectClass(): string
     {
         return \Illuminate\Database\Eloquent\Model::class;
     }

@@ -19,7 +19,6 @@ class JsonResponseServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
         $this->registerFacade();
-        $this->registerTranslations();
     }
 
     /**
@@ -52,21 +51,9 @@ class JsonResponseServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../config/config.php' => config_path('json-response.php'),
-        ], 'config');
+        ], 'json-response:config');
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/config.php', 'json-response'
         );
-    }
-
-    /**
-     * Register translations.
-     *
-     * @return void
-     */
-    protected function registerTranslations()
-    {
-        $this->publishes([
-            __DIR__ . '/../../resources/lang/en/json-response.php' => resource_path('lang/en'),
-        ], 'json-response');
     }
 }

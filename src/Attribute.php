@@ -21,8 +21,7 @@ class Attribute
     /**
      * Create a new instance.
      *
-     * @param  array|Option $attributes
-     * @return void
+     * @param \ArinaSystems\JsonResponse\Option $options
      */
     public function __construct(Option $options)
     {
@@ -44,25 +43,26 @@ class Attribute
     /**
      * Set a attribute to a given value using "dot" notation.
      *
-     * @param  string|array $key
+     * @param  string|array $keys
      * @param  null|mixed   $value
      * @return self
      */
-    public function set($key, $value = null)
+    public function set($keys, $value = null)
     {
-        if (is_array($key)) {
-            foreach ($key as $key => $value) {
+        if (is_array($keys)) {
+            foreach ($keys as $key => $value) {
                 $this->set($key, $value);
             }
+            return $this;
         }
 
-        if (!is_string($key)) {
-            throw new InvalidArgumentException();
+        if (!is_string($keys)) {
+            throw new InvalidArgumentException("\$key must be a string or array.");
         }
 
-        $value = $this->build($key, $value);
+        $value = $this->build($keys, $value);
 
-        Arr::set($this->attributes, $key . '.value', $value);
+        Arr::set($this->attributes, $keys . '.value', $value);
 
         return $this;
     }
@@ -108,7 +108,7 @@ class Attribute
     }
 
     /**
-     * Get the builder attribute' value.
+     * Get the attribute's value builder.
      *
      * @param  string  $attribute
      * @return mixed
@@ -119,12 +119,15 @@ class Attribute
     }
 
     /**
-     * @param array $options
+     * Parsing the attributes from the given options.
+     *
+     * @param  \ArinaSystems\JsonResponse\Option $options
+     * @return void
      */
-    protected function parse($options): void
+    protected function parse(Option $options): void
     {
         $this->options = $options;
-        $this->attributes = $options->get('attributes');
+        $this->attributes = (array) $options->get('attributes');
         $this->set($this->all());
     }
 
@@ -152,7 +155,9 @@ class Attribute
     }
 
     /**
-     * @return mixed
+     * Get an instance of attribute object.
+     *
+     * @return self
      */
     public function instance()
     {

@@ -2,17 +2,20 @@
 
 namespace ArinaSystems\JsonResponse\Status;
 
-use ArinaSystems\JsonResponse\Code;
+use ArinaSystems\JsonResponse\JsonResponse;
 
-class OkStatus
+class OkStatus implements Status
 {
     /**
-     * @param  $builder
-     * @return mixed
+     * Handle response status.
+     *
+     * @param  \ArinaSystems\JsonResponse\JsonResponse   $builder
+     * @return \ArinaSystems\JsonResponse\JsonResponse
      */
-    public function handle($builder)
+    public function handle($builder): JsonResponse
     {
-        return $builder->setAttributes('success', true)
-                       ->setAttributes('code', Code::of('OK'));
+        return $builder->setAttribute('message', 'ok')
+                       ->setAttribute('success', true)
+                       ->setAttribute('code', 200);
     }
 }

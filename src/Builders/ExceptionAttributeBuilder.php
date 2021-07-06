@@ -1,6 +1,6 @@
 <?php
 
-namespace ArinaSystems\JsonResponse\Attribute\Builders;
+namespace ArinaSystems\JsonResponse\Builders;
 
 use Throwable;
 use Illuminate\Auth\AuthenticationException;
@@ -21,7 +21,7 @@ class ExceptionAttributeBuilder extends Builder
     protected $code;
 
     /**
-     * @var string
+     * @var \Illuminate\Contracts\Translation\Translator|string|array|null
      */
     protected $message;
 
