@@ -44,14 +44,6 @@ class AttributeTest extends TestCase
     /**
      * @test
      */
-    public function it_loads_the_given_attributes_array()
-    {
-        $this->assertEquals($this->attribute->all(), $this->attributes);
-    }
-
-    /**
-     * @test
-     */
     public function it_returns_value_of_given_key()
     {
         $this->assertEquals($this->attribute->get('code'), $this->attributes['code']);
