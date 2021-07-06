@@ -65,8 +65,11 @@ class JsonResponse
 
         return Response::json(
             $this->build($is_error),
+            /* @scrutinizer ignore-type */
             $this->attributes('http_code', 200),
+            /* @scrutinizer ignore-type */
             $this->attributes('headers', []),
+            /* @scrutinizer ignore-type */
             $this->options('encoding_options')
         );
     }
@@ -157,7 +160,7 @@ class JsonResponse
             $this->options = $options;
         }
 
-        $this->options->set($options, $value);
+        $this->options->set(/* @scrutinizer ignore-type */ $options, $value);
 
         return $this;
     }
@@ -187,7 +190,7 @@ class JsonResponse
             $this->attributes = $attributes;
         }
 
-        $this->attributes->set($attributes, $value);
+        $this->attributes->set(/* @scrutinizer ignore-type */ $attributes, $value);
 
         return $this;
     }
@@ -243,7 +246,7 @@ class JsonResponse
     /**
      * Get the current instance of json response builder.
      *
-     * @return ArinaSystems\JsonResponse\JsonResponse
+     * @return \ArinaSystems\JsonResponse\JsonResponse
      */
     public function instance(): self
     {

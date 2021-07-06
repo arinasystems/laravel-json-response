@@ -127,7 +127,7 @@ class Option
     {
         return array_map(function ($attribute) {
             return Arr::get($attribute, 'builder');
-        }, $this->get('attributes'));
+        }, /* @scrutinizer ignore-type */ $this->get('attributes'));
     }
 
     /**

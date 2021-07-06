@@ -14,6 +14,7 @@ filter:
         - "app/*"
         - "src/*"
     excluded_paths:
+        - "src/Tests/*"
         - "bootstrap/*"
         - "config/*"
         - "public/*"

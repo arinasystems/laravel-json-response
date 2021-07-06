@@ -76,10 +76,8 @@ class Attribute
     {
         $attributes = $this->attributes;
 
-        if (! is_null($value)) {
-            foreach ($attributes as $attribute => $options) {
-                $attributes[$attribute] = Arr::get($options, $value);
-            }
+        foreach ($attributes as $attribute => $options) {
+            $attributes[$attribute] = Arr::get($options, $value);
         }
 
         return $attributes;

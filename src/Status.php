@@ -38,11 +38,11 @@ class Status
      * Forget a status from by given name.
      *
      * @param  string  $key
-     * @return mixed
+     * @return void
      */
     public function forget(string $key)
     {
-        return Arr::forget($this->status, $key);
+        Arr::forget($this->status, $key);
     }
 
     /**
@@ -70,7 +70,7 @@ class Status
     /**
      * Check if an status is exist in the array.
      *
-     * @param  array  $key
+     * @param  array|string  $key
      * @return bool
      */
     public function has($key)
@@ -91,7 +91,7 @@ class Status
     /**
      * Call the response status.
      *
-     * @return array
+     * @return \ArinaSystems\JsonResponse\JsonResponse
      */
     public function call(string $status, $builder)
     {
