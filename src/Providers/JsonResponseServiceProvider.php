@@ -2,11 +2,11 @@
 
 namespace ArinaSystems\JsonResponse\Providers;
 
+use ArinaSystems\JsonResponse\Attribute;
+use ArinaSystems\JsonResponse\JsonResponse;
 use ArinaSystems\JsonResponse\Option;
 use ArinaSystems\JsonResponse\Status;
 use Illuminate\Support\ServiceProvider;
-use ArinaSystems\JsonResponse\Attribute;
-use ArinaSystems\JsonResponse\JsonResponse;
 
 class JsonResponseServiceProvider extends ServiceProvider
 {
@@ -50,10 +50,11 @@ class JsonResponseServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('json-response.php'),
+            __DIR__.'/../../config/config.php' => config_path('json-response.php'),
         ], 'json-response:config');
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/config.php', 'json-response'
+            __DIR__.'/../../config/config.php',
+            'json-response'
         );
     }
 }

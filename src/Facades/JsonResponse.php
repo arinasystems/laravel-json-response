@@ -5,7 +5,7 @@ namespace ArinaSystems\JsonResponse\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * JsonResponse
+ * JsonResponse.
  *
  * @method static \Illuminate\Http\JsonResponse json(string|array $status = null, array $attributes = [], array $options = []) Return json response.
  * @method static \Illuminate\Http\JsonResponse error(\Throwable $exception, string|array $status = null, array $attributes = [], array $options = []) Return json response with error.

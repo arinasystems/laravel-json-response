@@ -14,7 +14,7 @@ class DataAttributeBuilder extends Builder
      */
     public function build($object)
     {
-        if (!is_object($object)) {
+        if (! is_object($object)) {
             return $object;
         }
 
@@ -24,6 +24,6 @@ class DataAttributeBuilder extends Builder
             }
         }
 
-        throw new Exception("Transformer not found for type " . get_class($object) . ".");
+        throw new Exception('Transformer not found for type '.get_class($object).'.');
     }
 }

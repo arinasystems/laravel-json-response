@@ -5,7 +5,7 @@ namespace ArinaSystems\JsonResponse\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Option
+ * Option.
  *
  * @method static \ArinaSystems\JsonResponse\Option instance() Get the current instance of json response options.
  * @method static \ArinaSystems\JsonResponse\Option set(string|array $key, mixed $value = null) Set a option to a given value using "dot" notation.

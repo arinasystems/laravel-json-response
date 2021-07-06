@@ -2,9 +2,9 @@
 
 namespace ArinaSystems\JsonResponse\Transformers;
 
-use Illuminate\Support\Arr;
-use Illuminate\Pagination\LengthAwarePaginator;
 use ArinaSystems\JsonResponse\Facades\JsonResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Arr;
 
 class JsonResourceTransformer extends Transformer
 {

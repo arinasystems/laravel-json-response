@@ -2,13 +2,11 @@
 
 namespace ArinaSystems\JsonResponse\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use ArinaSystems\JsonResponse\Providers\JsonResponseServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 /**
- * Class TestCase
- *
- * @package Tests
+ * Class TestCase.
  */
 abstract class TestCase extends Orchestra
 {

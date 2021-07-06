@@ -2,9 +2,9 @@
 
 namespace ArinaSystems\JsonResponse\Builders;
 
-use Illuminate\Container\Container;
-use ArinaSystems\JsonResponse\Option;
 use ArinaSystems\JsonResponse\Attribute;
+use ArinaSystems\JsonResponse\Option;
+use Illuminate\Container\Container;
 
 abstract class Builder
 {

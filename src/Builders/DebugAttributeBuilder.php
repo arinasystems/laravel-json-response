@@ -15,7 +15,7 @@ class DebugAttributeBuilder extends Builder
      */
     public function build($exception)
     {
-        if (!is_a($exception, Exception::class)) {
+        if (! is_a($exception, Exception::class)) {
             return $exception;
         }
 
