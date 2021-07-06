@@ -2,7 +2,6 @@
 
 namespace ArinaSystems\JsonResponse;
 
-use ArinaSystems\JsonResponse\Option;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
 
