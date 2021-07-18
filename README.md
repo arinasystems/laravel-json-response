@@ -1,4 +1,4 @@
-<div style="text-align:center"><img alt="Laravel JSON Response Cover" src="./docs/laravel-json-response.png" /></div>
+<p align="center" style="text-align:center"><img alt="Laravel JSON Response Cover" src="./docs/laravel-json-response.gif" /></p>
 <p align="center">
 <br/>
 <a href="https://packagist.org/packages/arinasystems/laravel-json-response"><img src="https://img.shields.io/packagist/v/arinasystems/laravel-json-response.svg?style=flat-square" alt="Latest Version on Packagist"></a>
