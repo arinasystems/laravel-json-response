@@ -53,12 +53,12 @@ class JsonResponse
             $this->options($options);
         }
 
-        if (! empty($attributes)) {
-            $this->attributes($attributes);
-        }
-
         if (! is_null($status) && is_string($status)) {
             $this->status($status);
+        }
+
+        if (! empty($attributes)) {
+            $this->attributes($attributes);
         }
 
         $is_error = $this->attributes('exception') ? true : false;
