@@ -5,6 +5,7 @@ namespace ArinaSystems\JsonResponse\Builders;
 use ArinaSystems\JsonResponse\Facades\JsonResponse;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
+use stdClass;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Throwable;
 
@@ -71,9 +72,13 @@ class ExceptionAttributeBuilder extends Builder
             'http_code' => $this->http_code,
             'code'      => $this->code,
             'message'   => $this->message,
-            'errors'    => $errors ?? [],
+            'errors'    => $errors ?? new stdClass,
             'debug'     => $exception->getTrace(),
         ]);
+
+        if (method_exists($this, $handle = 'handleAny')) {
+            $this->{$handle}($exception);
+        }
 
         return $exceptionName;
     }
