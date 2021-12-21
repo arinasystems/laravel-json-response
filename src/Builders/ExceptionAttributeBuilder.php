@@ -75,6 +75,10 @@ class ExceptionAttributeBuilder extends Builder
             'debug'     => $exception->getTrace(),
         ]);
 
+        if (method_exists($this, $handle = 'handleAny')) {
+            $this->{$handle}($exception);
+        }
+
         return $exceptionName;
     }
 }
