@@ -72,7 +72,7 @@ class ExceptionAttributeBuilder extends Builder
             'http_code' => $this->http_code,
             'code'      => $this->code,
             'message'   => $this->message,
-            'errors'    => $errors ?? new stdClass,
+            'errors'    => $errors ?? new \stdClass,
             'debug'     => $exception->getTrace(),
         ]);
 
