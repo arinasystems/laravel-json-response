@@ -48,7 +48,7 @@ class JsonResourceTransformer extends Transformer
     /**
      * Get the pagination links for the response.
      *
-     * @param  array   $paginated
+     * @param  array  $paginated
      * @return array
      */
     protected function paginationLinks($paginated)
@@ -64,7 +64,7 @@ class JsonResourceTransformer extends Transformer
     /**
      * Gather the meta data for the response.
      *
-     * @param  array   $paginated
+     * @param  array  $paginated
      * @return array
      */
     protected function meta($paginated)

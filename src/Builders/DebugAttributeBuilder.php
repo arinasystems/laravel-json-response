@@ -10,7 +10,7 @@ class DebugAttributeBuilder extends Builder
     /**
      * Build a value of the exception attribute.
      *
-     * @param  \Exception $exception
+     * @param  \Exception  $exception
      * @return mixed
      */
     public function build($exception)

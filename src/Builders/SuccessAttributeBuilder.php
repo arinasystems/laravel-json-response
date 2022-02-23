@@ -7,7 +7,7 @@ class SuccessAttributeBuilder extends Builder
     /**
      * Build a value of the attribute.
      *
-     * @param  bool   $success
+     * @param  bool  $success
      * @return bool
      */
     public function build($success)
