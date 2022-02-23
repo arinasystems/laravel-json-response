@@ -26,7 +26,7 @@ class JsonResponse
     /**
      * Create a new instance.
      *
-     * @param \ArinaSystems\JsonResponse\Option|array|string $options
+     * @param  \ArinaSystems\JsonResponse\Option|array|string  $options
      */
     public function __construct(Option $options, Attribute $attributes, Status $status)
     {
@@ -38,9 +38,9 @@ class JsonResponse
     /**
      * Return json response.
      *
-     * @param  string|array                    $status
-     * @param  array                           $attributes
-     * @param  array                           $options
+     * @param  string|array  $status
+     * @param  array  $attributes
+     * @param  array  $options
      * @return \Illuminate\Http\JsonResponse
      */
     public function json($status = null, array $attributes = [], array $options = [])
@@ -77,10 +77,10 @@ class JsonResponse
     /**
      * Return json response with error.
      *
-     * @param  \Throwable                      $exception
-     * @param  string|array                    $status
-     * @param  array                           $attributes
-     * @param  array                           $options
+     * @param  \Throwable  $exception
+     * @param  string|array  $status
+     * @param  array  $attributes
+     * @param  array  $options
      * @return \Illuminate\Http\JsonResponse
      */
     public function error($exception, $status = null, array $attributes = [], array $options = [])
@@ -93,7 +93,7 @@ class JsonResponse
     /**
      * Retrieve/Set json response status.
      *
-     * @param  string                                   $status
+     * @param  string  $status
      * @return \ArinaSystems\JsonResponse\Status|self
      */
     public function status(string $status = null)
@@ -110,8 +110,8 @@ class JsonResponse
     /**
      * Retrieve/Set json response options.
      *
-     * @param  string|array|null                         $key
-     * @param  mixed|null                                $default
+     * @param  string|array|null  $key
+     * @param  mixed|null  $default
      * @return \ArinaSystems\JsonResponse\Option|mixed
      */
     public function options($key = null, $default = null)
@@ -130,8 +130,8 @@ class JsonResponse
     /**
      * Retrieve/Set json response attributes.
      *
-     * @param  string|array|null                            $key
-     * @param  mixed|null                                   $default
+     * @param  string|array|null  $key
+     * @param  mixed|null  $default
      * @return \ArinaSystems\JsonResponse\Attribute|mixed
      */
     public function attributes($key = null, $default = null)
@@ -150,8 +150,8 @@ class JsonResponse
     /**
      * Set json response options.
      *
-     * @param  \ArinaSystems\JsonResponse\Option|array|string $options
-     * @param  null|mixed                                     $value
+     * @param  \ArinaSystems\JsonResponse\Option|array|string  $options
+     * @param  null|mixed  $value
      * @return self
      */
     public function setOptions($options, $value = null)
@@ -168,8 +168,8 @@ class JsonResponse
     /**
      * Set json response option.
      *
-     * @param  \ArinaSystems\JsonResponse\Option|array|string $options
-     * @param  null|mixed                                     $value
+     * @param  \ArinaSystems\JsonResponse\Option|array|string  $options
+     * @param  null|mixed  $value
      * @return self
      */
     public function setOption($options, $value = null)
@@ -180,8 +180,8 @@ class JsonResponse
     /**
      * Set json response attributes.
      *
-     * @param  \ArinaSystems\JsonResponse\Attribute|array|string $attributes
-     * @param  null|mixed                                        $value
+     * @param  \ArinaSystems\JsonResponse\Attribute|array|string  $attributes
+     * @param  null|mixed  $value
      * @return self
      */
     public function setAttributes($attributes, $value = null)
@@ -198,8 +198,8 @@ class JsonResponse
     /**
      * Set json response attribute.
      *
-     * @param  \ArinaSystems\JsonResponse\Attribute|array|string $attributes
-     * @param  null|mixed                                        $value
+     * @param  \ArinaSystems\JsonResponse\Attribute|array|string  $attributes
+     * @param  null|mixed  $value
      * @return self
      */
     public function setAttribute($attributes, $value = null)
@@ -210,7 +210,7 @@ class JsonResponse
     /**
      * Get the json response data array.
      *
-     * @param  bool    $error
+     * @param  bool  $error
      * @return array
      */
     protected function build(bool $error = false): array
@@ -229,7 +229,7 @@ class JsonResponse
     /**
      * Get response data structure.
      *
-     * @param  bool    $error
+     * @param  bool  $error
      * @return array
      */
     public function structure(bool $error = false): array

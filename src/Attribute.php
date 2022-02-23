@@ -20,7 +20,7 @@ class Attribute
     /**
      * Create a new instance.
      *
-     * @param \ArinaSystems\JsonResponse\Option $options
+     * @param  \ArinaSystems\JsonResponse\Option  $options
      */
     public function __construct(Option $options)
     {
@@ -31,7 +31,7 @@ class Attribute
      * Get an attribute from an array using "dot" notation.
      *
      * @param  string  $key
-     * @param  mixed   $default
+     * @param  mixed  $default
      * @return mixed
      */
     public function get(string $key, $default = null)
@@ -42,8 +42,8 @@ class Attribute
     /**
      * Set a attribute to a given value using "dot" notation.
      *
-     * @param  string|array $keys
-     * @param  null|mixed   $value
+     * @param  string|array  $keys
+     * @param  null|mixed  $value
      * @return self
      */
     public function set($keys, $value = null)
@@ -86,9 +86,9 @@ class Attribute
     /**
      * Build the value of attribute.
      *
-     * @param  string     $attribute
-     * @param  mixed      $value
-     * @param  mixed|null $builder
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  mixed|null  $builder
      * @return mixed
      */
     public function build(string $attribute, $value, $builder = null)
@@ -120,7 +120,7 @@ class Attribute
     /**
      * Parsing the attributes from the given options.
      *
-     * @param  \ArinaSystems\JsonResponse\Option $options
+     * @param  \ArinaSystems\JsonResponse\Option  $options
      * @return void
      */
     protected function parse(Option $options): void
@@ -133,7 +133,7 @@ class Attribute
     /**
      * Dynamically set attribute on the response attributes object.
      *
-     * @param  string $key
+     * @param  string  $key
      * @param  mixed  $value
      * @return void
      */

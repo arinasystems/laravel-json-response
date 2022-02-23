@@ -10,7 +10,7 @@ trait JsonHandler
     /**
      * Prepare a JSON response for the given exception.
      *
-     * @param  \Throwable                      $exception
+     * @param  \Throwable  $exception
      * @return \Illuminate\Http\JsonResponse
      */
     protected function renderForJson(Throwable $exception)

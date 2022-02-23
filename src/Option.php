@@ -23,7 +23,7 @@ class Option
     /**
      * Create a new instance.
      *
-     * @param array $options
+     * @param  array  $options
      */
     public function __construct(array $options)
     {
@@ -33,8 +33,8 @@ class Option
     /**
      * Get a option from an array using "dot" notation.
      *
-     * @param  string     $key
-     * @param  mixed|null $default
+     * @param  string  $key
+     * @param  mixed|null  $default
      * @return mixed
      */
     public function get(string $key, $default = null)
@@ -45,8 +45,8 @@ class Option
     /**
      * Set a option to a given value using "dot" notation.
      *
-     * @param  string|array $keys
-     * @param  null|mixed   $value
+     * @param  string|array  $keys
+     * @param  null|mixed  $value
      * @return self
      */
     public function set($keys, $value = null)
@@ -88,7 +88,7 @@ class Option
     /**
      * Dynamically set option on the response options object.
      *
-     * @param  string $key
+     * @param  string  $key
      * @param  mixed  $value
      * @return void
      */

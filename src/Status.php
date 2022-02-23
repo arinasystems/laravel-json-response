@@ -15,7 +15,7 @@ class Status
     /**
      * Create a new instance.
      *
-     * @param array $status
+     * @param  array  $status
      */
     public function __construct(array $status)
     {
@@ -25,8 +25,8 @@ class Status
     /**
      * Get a status from an array using "dot" notation.
      *
-     * @param  string     $key
-     * @param  mixed|null $default
+     * @param  string  $key
+     * @param  mixed|null  $default
      * @return mixed
      */
     public function get(string $key, $default = null)
@@ -48,8 +48,8 @@ class Status
     /**
      * Set a status to a given value using "dot" notation.
      *
-     * @param  string|array $keys
-     * @param  null|mixed   $value
+     * @param  string|array  $keys
+     * @param  null|mixed  $value
      * @return self
      */
     public function set($keys, $value = null)

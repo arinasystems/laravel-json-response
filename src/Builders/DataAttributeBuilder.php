@@ -9,7 +9,7 @@ class DataAttributeBuilder extends Builder
     /**
      * Build a value of the attribute.
      *
-     * @param  mixed   $object
+     * @param  mixed  $object
      * @return mixed
      */
     public function build($object)
