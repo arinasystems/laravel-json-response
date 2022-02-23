@@ -9,7 +9,7 @@ class LocaleAttributeBuilder extends Builder
     /**
      * Build a value of the attribute.
      *
-     * @param  string|null $locale
+     * @param  string|null  $locale
      * @return string
      */
     public function build($locale = null)

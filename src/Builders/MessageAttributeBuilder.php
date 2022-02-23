@@ -9,7 +9,7 @@ class MessageAttributeBuilder extends Builder
     /**
      * Build a value of the attribute.
      *
-     * @param  string   $message
+     * @param  string  $message
      * @return string
      */
     public function build($message)
